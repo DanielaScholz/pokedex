@@ -1,0 +1,47 @@
+/* Responsive-design for mobile devices */
+
+@media (max-width: 623px) {
+    #navbar {
+        flex-direction: column;
+    }
+
+    #navbar>h1 {
+        margin: 10px;
+    }
+
+    .mode-box{
+        margin: 10px;
+    }
+
+}
+
+@media (max-width: 530px) {
+    .detail-card {
+        height: 100%;
+        width: 100%;
+    }
+
+    .top-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 65vh;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .bottom-card {
+        position: unset;
+        height: 35vh;
+        width: 100%;
+        border-radius: 0;
+        border: unset;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 380px) {
+    progress{
+        inline-size: 6em;
+        }
+}

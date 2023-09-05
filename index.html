@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="mobile.css">
+
+    <script src="script.js"></script>
+    <script src="template.js"></script>
+    <script src="types.js"></script>
+</head>
+
+<body id="body2" onload="init()">
+    <nav id="navbar">
+        <h1>PokéDex</h1>
+        <div>
+            <input id="searchbar" type="text" class="searchbar" placeholder="search pokemon" onkeydown="searchPokemon()">
+        </div>
+        <div class="mode-box" onclick="changeMode()">
+            <div id="mode" class="light mode"></div>
+        </div>
+    </nav>
+
+    <section id="loadingContainer" class="loading-container d-none">
+        <img class="loading-img" src="./img/loadingPokeball.png">
+        <span>Pokémons are loading ...</span>
+    </section>
+
+    <main id="mainContainer" class="main-container">
+        <div id="loadingBtn" onclick="init()" class="loading-card"></div>
+    </main>
+    <button id="loadingBtn" class="loading-btn" onclick="init()"> Load more </button>
+
+    <div id="popUpContainer" class="popUp-container d-none"></div>
+    <footer>
+        <a href="">Imprint</a>
+    </footer>
+
+</body>
+
+</html>
