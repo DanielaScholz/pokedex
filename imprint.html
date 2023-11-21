@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="imprint.css">
+    <link rel="stylesheet" type="text/css" href="mobile.css">
+
+    <script src="script.js"></script>
+    <script src="template.js"></script>
+</head>
+
+<body id="body2" onload="includeHTML()">
+
+    <div w3-include-html="./templates/header.html"></div>
+
+    <div class="imprint-container">
+        <h2>Impressum</h2>
+
+        <h3>Angaben gem&auml;&szlig; &sect; 5 TMG</h3>
+        <p>Daniela Scholz<br />
+            Grellgasse 15/3/8<br />
+            1210 Wien</p>
+
+        <h3>Kontakt</h3>
+        <p>Telefon: 06603770605<br />
+            E-Mail: daniela.scholz93@gmail.com</p>
+
+        <p>Quelle: <a
+                href="https://www.e-recht24.de/impressum-generator.html">https://www.e-recht24.de/impressum-generator.html</a>
+        </p>
+    </div>
+
+
+    <div w3-include-html="./templates/footer.html"></div>
+
+</body>
+
+</html>
