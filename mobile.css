@@ -13,6 +13,10 @@
         margin: 10px;
     }
 
+    .loading-btn {
+        bottom: 101px;
+    }
+
 }
 
 @media (max-width: 530px) {
