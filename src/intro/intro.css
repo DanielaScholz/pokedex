@@ -1,0 +1,133 @@
+@import url(./assets/fonts/fonts.css);
+
+
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Open Sans';
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.heading {
+  color: white;
+}
+
+.text {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.pokeball {
+  box-sizing: border-box;
+  border: 10px solid #262122;
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+  margin: 0 auto;
+  background: linear-gradient(150deg, #EF534F 0%, #EF534F 48%, #262122 48%, #262122 52%, #FFF 52%, #FFF 100%);
+  cursor: pointer;
+}
+
+.pokeball:before,
+.pokeball:after {
+  content: " ";
+  border-radius: 100%;
+  display: block;
+  position: absolute;
+}
+
+.pokeball:before {
+  background: #262122;
+  width: 80px;
+  height: 80px;
+  margin-top: 75px;
+  margin-left: 75px;
+}
+
+.pokeball:after {
+  background: #fff;
+  width: 50px;
+  height: 50px;
+  margin-top: 70px;
+  margin-left: 70px;
+  border: double 20px #262122;
+}
+
+.pokeball-animated {
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-name: shake;
+}
+
+@keyframes shake {
+  from {
+    transform: none;
+  }
+
+  20% {
+    transform: translate3d(-20%, 0, 0) rotate3d(0, 0, 1, -10deg);
+  }
+
+  40% {
+    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 5deg);
+  }
+
+  50% {
+    transform: translate3d(-10%, 0, 0) rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 50deg);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+@media (max-width: 530px) {
+
+
+  .pokeball {
+    border: 5px solid #262122;
+    width: 125px;
+    height: 125px;
+    margin: 0 auto;
+  }
+
+  .pokeball:before {
+    width: 40px;
+    height: 40px;
+    margin-top: 35px;
+    margin-left: 35px;
+  }
+
+  .pokeball:after {
+    width: 25px;
+    height: 25px;
+    margin-top: 35px;
+    margin-left: 35px;
+    border: double 10px #262122;
+
+  }
+
+  img {
+    width: 270px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+}

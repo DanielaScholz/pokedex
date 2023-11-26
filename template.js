@@ -24,7 +24,7 @@ function templateDetailCard(i, opendPokemon) {
           <div class="detail-card">
             <div id="topCard${i}" class="top-card padding-20">
                 <div>
-                    <img class="close-icon" src="./img/close.png" onclick="closeDetailCard()">
+                    <img class="close-icon" src="./assets/img/close.png" onclick="closeDetailCard()">
                 </div>
                 <span class="font-24"><b>#ID ${opendPokemon['id']}</b></span>
                 <span class="card-heading">${opendPokemon['name']}</span>
@@ -33,10 +33,10 @@ function templateDetailCard(i, opendPokemon) {
                     <div class="bg-highlight">${opendPokemon['types'][0]['type']['name']}</div>
                 </div>
                 <div class="flex-space-btw">
-                    <img class="icon" src="./img/arrow-left.png" onclick="previousDetailCard(${i})">
+                    <img class="icon" src="./assets/img/arrow-left.png" onclick="previousDetailCard(${i})">
                     <img class="card-image"
                         src="${opendPokemon['sprites']['other']['official-artwork']['front_default']}">
-                    <img class="icon" src="./img/arrow-right.png" onclick="nextDetailCard(${i})">
+                    <img class="icon" src="./assets/img/arrow-right.png" onclick="nextDetailCard(${i})">
                 </div>
                 <div class="flex-space-btw">
                     <span>Weight: <b>${opendPokemon['weight']}</b></span>    

@@ -1,7 +1,7 @@
 /* IMPORTS */
 
 /* Fonts: */
-@import url(fonts/fonts.css);
+@import url(./assets/fonts/fonts.css);
 
 
 /* GlOBAL */
@@ -10,8 +10,6 @@
 }
 
 body {
-    /* display: flex;
-    flex-direction: column; */
     margin: 0;
     font-family: 'Open Sans';
     font-weight: 16px;
@@ -34,27 +32,11 @@ span {
     align-items: center;
 }
 
-/* .flex-center {
-    display: flex;
-    justify-content: center;
-}
-
-.flex-end {
-    display: flex;
-    justify-content: flex-end;
-} */
-
 .flex-space-btw {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-/* .flex-align-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
 .d-none {
     display: none !important;
@@ -78,6 +60,10 @@ span {
 .font-24 {
     font-size: 24px;
     font-weight: bold;
+}
+
+.word-break{
+    word-break: break-all;
 }
 
 /* Padding */
@@ -114,17 +100,6 @@ a{
     text-decoration: none;
 }
 
-/* h1 {
-    text-decoration: none;
-    margin: 20px 20px 20px 30px;
-    font-size: 48px;
-    color: #FECA1B;
-    background: #EF534F;
-    text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
-    color: #FECA1B;
-    background: #EF534F;
-} */
-
 .pokemon-banner{
     height: 150px;
     margin-left: 30px;
@@ -144,7 +119,8 @@ nav {
 }
 
 .searchbar {
-    background-image: url(./img/search.png);
+    width: 400px;
+    background-image: url(assets/img/search.png);
     background-repeat: no-repeat;
     background-position: left;
     background-position-x: 8px;
@@ -182,13 +158,13 @@ nav {
 .night{
     height: 50px;
     width: 50px;
-    background-image: url(img/light-mode.png);
+    background-image: url(assets/img/light-mode.png);
 }
 
 .light {
     height: 40px;
     width: 40px;
-    background-image: url(img/night-mode.png);
+    background-image: url(assets/img/night-mode.png);
 }
 
 /* LOADING-SECTION */

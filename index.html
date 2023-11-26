@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex</title>
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="mobile.css">
 
@@ -16,11 +16,10 @@
 </head>
 
 <body id="body2" onload="includeHTML(), init()">
-
-    <div w3-include-html="./templates/header.html"></div>
+    <div w3-include-html="src/templates/header.html"></div>
 
     <section id="loadingContainer" class="loading-container d-none">
-        <img class="loading-img" src="./img/loadingPokeball.png">
+        <img class="loading-img" src="assets/img/loadingPokeball.png">
         <span>Pokémons are loading ...</span>
     </section>
 
@@ -31,11 +30,7 @@
 
     <div id="popUpContainer" class="popUp-container d-none"></div>
 
-    <div w3-include-html="./templates/footer.html"></div>
-
-
-
-
+    <div w3-include-html="src/templates/footer.html"></div>
 </body>
 
 </html>

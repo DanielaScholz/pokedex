@@ -25,10 +25,18 @@ async function includeHTML() {
         let resp = await fetch(file);
         if (resp.ok) {
             element.innerHTML = await resp.text();
+            checkURL();
         } else {
             element.innerHTML = 'Page not found';
         }
     }
+}
+
+function checkURL() {
+    let pathname = window.location.pathname.slice(1, -5);
+    if (pathname == 'privacy-policy' || pathname == 'imprint') {
+        addClass('searchbar', 'd-none');
+    } 
 }
 
 

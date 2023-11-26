@@ -1,5 +1,11 @@
 /* Responsive-design for mobile devices */
 
+@media (max-width: 950px) {
+    .searchbar {
+        width: unset;
+    }
+}
+
 @media (max-width: 623px) {
     #navbar {
         flex-direction: column;
@@ -9,7 +15,7 @@
         margin: 10px;
     }
 
-    .mode-box{
+    .mode-box {
         margin: 10px;
     }
 
@@ -17,6 +23,9 @@
         bottom: 101px;
     }
 
+    .pokemon-banner {
+        margin-left: 0;
+    }
 }
 
 @media (max-width: 530px) {
@@ -45,7 +54,11 @@
 }
 
 @media (max-width: 380px) {
-    progress{
+    progress {
         inline-size: 6em;
-        }
+    }
+
+    .pokemon-banner {
+        width: 260px;
+    }
 }
