@@ -136,6 +136,7 @@ function changeMode() {
         removeClass('mode', 'night');
         addClass('mode', 'light')
         document.getElementById('body2').style.backgroundColor = '#FBFBFB';
+        document.getElementById('body2').style.color = 'black';
     }
 
     else if (lightMode == true) {
@@ -143,5 +144,6 @@ function changeMode() {
         removeClass('mode', 'light');
         addClass('mode', 'night')
         document.getElementById('body2').style.backgroundColor = 'black';
+        document.getElementById('body2').style.color = 'white';
     }
 }
