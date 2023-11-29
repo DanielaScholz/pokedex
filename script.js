@@ -1,27 +1,76 @@
+/**
+ * Represents the currently selected Pokemon.
+ * @type {Object}
+ */
 let currentPokemon;
+
+/**
+ * Array containing loaded Pokemon data.
+ * @type {Array<Object>}
+ */
 let loadedPokemons;
+
+/**
+ * Array containing all Pokemon objects.
+ * @type {Array<Object>}
+ */
 let allPokemonsArray = [];
+
+/**
+ * Array containing names of Pokemon.
+ * @type {Array<string>}
+ */
 let pokemonNamesArray = [];
+
+/**
+ * Represents the offset for API requests.
+ * @type {number}
+ */
 let offset = 0;
+
+/**
+ * Represents the limit for API requests.
+ * @type {number}
+ */
 let limit = 20;
+
+/**
+ * Represents the current mode (light/dark).
+ * @type {boolean}
+ */
 let lightMode = true;
 
 
+
+/**
+ * Adds a class to a specified element.
+ * @param {string} elem - The ID of the HTML element.
+ * @param {string} className - The class name to add.
+ */
 function addClass(elem, className) {
     document.getElementById(elem).classList.add(className);
 }
 
 
+/**
+ * Removes a class from a specified element.
+ * @param {string} elem - The ID of the HTML element.
+ * @param {string} className - The class name to remove.
+ */
 function removeClass(elem, className) {
     document.getElementById(elem).classList.remove(className);
 }
 
 
+/**
+ * Includes HTML content into specified elements.
+ * Uses 'w3-include-html' attribute in HTML elements.
+ */
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
     for (let i = 0; i < includeElements.length; i++) {
         const element = includeElements[i];
-        file = element.getAttribute("w3-include-html"); // "includes/header.html"
+        file = element.getAttribute("w3-include-html");
         let resp = await fetch(file);
         if (resp.ok) {
             element.innerHTML = await resp.text();
@@ -32,6 +81,10 @@ async function includeHTML() {
     }
 }
 
+
+/**
+ * Checks the URL pathname and performs actions based on it.
+ */
 function checkURL() {
     let pathname = window.location.pathname.slice(1, -5);
     if (pathname == 'privacy-policy' || pathname == 'imprint') {
@@ -40,38 +93,9 @@ function checkURL() {
 }
 
 
-async function init() {
-    let url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
-    let response = await fetch(url);
-    loadedPokemons = await response.json();
-    loadPokemon(offset);
-    offset = limit;
-    limit = (offset + 20);
-}
-
-
-async function loadPokemon(offset) {
-    document.getElementById('mainContainer').innerHTML = '';
-
-    preloader();
-
-    for (let id = 0 + offset; id < loadedPokemons['results'].length; id++) {
-        let i = id + 1;
-        let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-        let response = await fetch(url);
-        currentPokemon = await response.json();
-        allPokemonsArray.push(currentPokemon);
-        pokemonNamesArray.push(currentPokemon['name']);
-        renderPokemonCards();
-    }
-
-    removeClass('mainContainer', 'd-none');
-    addClass('loadingContainer', 'd-none');
-    removeClass('loadingBtn', 'd-none');
-    document.getElementById('body2').style.overflow = "unset";
-}
-
-
+/**
+ * Displays a preloader while content is being loaded.
+ */
 function preloader() {
     addClass('mainContainer', 'd-none');
     addClass('loadingBtn', 'd-none');
@@ -80,104 +104,11 @@ function preloader() {
 }
 
 
-function renderPokemonCards() {
-    document.getElementById('mainContainer').innerHTML = '';
-
-    for (let i = 0; i < allPokemonsArray.length; i++) {
-        let allPokemons = allPokemonsArray[i];
-        mainContainer.innerHTML += templatePokemonCards(i, allPokemons);
-
-        checkForSecondType(i, allPokemons);
-        paintPokemonCard(i)
-    }
-}
-
-
-function paintPokemonCard(i) {
-    let type = allPokemonsArray[i]['types'][0]['type']['name'];
-    let colorCode = paintCardOfType(type);
-    document.getElementById(`pokemonCard${i}`).style.backgroundColor = `${colorCode}`;
-}
-
-
-function checkForSecondType(i, allPokemons) {
-    let types = allPokemonsArray[i]['types'];
-    if (types.length == 2) {
-        document.getElementById(`pokemonCard${i}`).innerHTML += templateAddSecondType(allPokemons);
-    }
-}
-
-
-function openDetailCard(i) {
-    let opendPokemon = allPokemonsArray[i];
-    document.getElementById('body2').style.overflow = "hidden";
-    addClass('navbar', 'd-none');
-    removeClass('popUpContainer', 'd-none');
-    addClass('loadingBtn', 'd-none');
-    document.getElementById('popUpContainer').innerHTML = templateDetailCard(i, opendPokemon);
-
-    checkForSecondTypeinDetailCard(i, opendPokemon);
-    paintPokemonDetailCard(i);
-}
-
-
-function paintPokemonDetailCard(i) {
-    let type = allPokemonsArray[i]['types'][0]['type']['name'];
-    let colorCode = paintCardOfType(type);
-    document.getElementById(`topCard${i}`).style.backgroundColor = `${colorCode}`;
-}
-
-
-function checkForSecondTypeinDetailCard(i, opendPokemon) {
-    let types = allPokemonsArray[i]['types'];
-    if (types.length == 2) {
-        document.getElementById(`pokemonType${i}`).innerHTML += templateAddSecondTypetoDetailCard(opendPokemon);
-    }
-}
-
-
-function closeDetailCard() {
-    document.getElementById('body2').style.overflow = "unset";
-    removeClass('navbar', 'd-none');
-    addClass('popUpContainer', 'd-none');
-    removeClass('loadingBtn', 'd-none');
-}
-
-
-function nextDetailCard(i) {
-    if (i >= allPokemonsArray.length - 1) {
-        openDetailCard(0);
-    } else {
-        i++;
-        openDetailCard(i);
-    }
-}
-
-
-function previousDetailCard(i) {
-    if (i > 0) {
-        i--;
-        openDetailCard(i);
-    } else {
-        openDetailCard(allPokemonsArray.length - 1);
-    }
-}
-
-// EVENTLISTENERS
-document.addEventListener('keydown', (event) => {
-    if (event.key == 'Escape') {
-        closeDetailCard();
-    }
-})
-
-document.addEventListener('click', (event) => {
-    let popUpContainer = document.getElementById('popUpContainer');
-    if (event.target == popUpContainer) {
-        closeDetailCard();
-    }
-})
-
 //SEARCHBAR
+
+/**
+ * Searches for a specific Pokemon based on user input in the search bar.
+ */
 function searchPokemon() {
     let searchbar = document.getElementById('searchbar').value;
     searchbar = searchbar.toLowerCase();
@@ -192,11 +123,13 @@ function searchPokemon() {
         if (pokemonNames.toLowerCase().includes(searchbar)) {
             mainContainer.innerHTML += templatePokemonCards(i, allPokemons);
             paintPokemonCard(i);
-            // document.getElementById('loadingBtn').classList.add('d-none');
         }
     }
 }
 
+/**
+ * Toggles between light and dark mode.
+ */
 function changeMode() {
     if (lightMode == false) {
         lightMode = true;
@@ -211,7 +144,4 @@ function changeMode() {
         addClass('mode', 'night')
         document.getElementById('body2').style.backgroundColor = 'black';
     }
-
-
 }
-

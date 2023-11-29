@@ -1,3 +1,8 @@
+/**
+ * Returns the color code associated with a given Pokemon type.
+ * @param {string} type - The type of the Pokemon.
+ * @returns {string | undefined} The color code corresponding to the Pokemon type.
+ */
 function paintCardOfType(type) {
 
   return {
@@ -20,7 +25,5 @@ function paintCardOfType(type) {
     rock: "#B7A038",
     steel: "#B8B8D0"
   }[type];
-
-
 }
 

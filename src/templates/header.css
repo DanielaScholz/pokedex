@@ -1,0 +1,75 @@
+
+a{
+    text-decoration: none;
+}
+
+.pokemon-banner{
+    height: 150px;
+    width: 300px;
+    margin-left: 30px;
+    background-image: url(../../assets/img/poke-banner.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    background-color: #EF534F;
+    z-index: 2;
+}
+
+.searchbar {
+    width: 400px;
+    background-image: url(../../assets/img/search.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 8px;
+    text-indent: 30px;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    color: grey;
+    padding: 10px;
+    border: 3px solid white;
+    border-radius: 20px;
+    outline: none;
+    margin: 10px;
+}
+
+.searchbar:focus,
+.searchbar:hover {
+    border: 3px solid #FECA1B;
+}
+
+.mode-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    margin: 20px 30px 20px 20px;
+}
+
+.mode {
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.night{
+    height: 50px;
+    width: 50px;
+    background-image: url(../../assets/img/light-mode.png);
+}
+
+.light {
+    height: 40px;
+    width: 40px;
+    background-image: url(../../assets/img/night-mode.png);
+}
