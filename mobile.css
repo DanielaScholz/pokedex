@@ -20,11 +20,15 @@
     }
 
     .loading-btn {
-        bottom: 101px;
+        bottom: 50px;
     }
 
     .pokemon-banner {
         margin-left: 0;
+    }
+
+    .loading-container{
+        height: calc(100vh - 300px);
     }
 }
 

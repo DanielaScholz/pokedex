@@ -62,7 +62,7 @@ span {
     font-weight: bold;
 }
 
-.word-break{
+.word-break {
     word-break: break-all;
 }
 
@@ -101,7 +101,7 @@ span {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 150px);
 }
 
 .loading-img {
@@ -163,7 +163,7 @@ span {
 
 .mainsite-image {
     height: 150px;
-    width: fit-content;
+    /* width: fit-content; */
 }
 
 
@@ -223,7 +223,7 @@ span {
     height: 250px;
     width: 500px;
     background-color: white;
-    border-radius: 40px;    
+    border-radius: 40px;
     margin-top: -32px;
 }
 
@@ -260,4 +260,3 @@ span {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background-color: grey;
 }
-
